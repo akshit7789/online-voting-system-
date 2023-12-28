@@ -1,21 +1,21 @@
 <?php
-session_start();
-if(!isset($_SESSION['userdata'])){
-    header("loaction: ../");
-}
+        session_start();
+        if(!isset($_SESSION['userdata'])){
+            header("location: ../");
+        }
 
-$userdata = $_SESSION['userdata'];
-$groupsdata= $_SESSION['groupsdata'];
-if($_SESSION ['userdata']['status']==0){
-    $status='<b style="color:red">Not Voted</b>';
-}
-else{
-   $status= '<b style="color:red">Not Voted</b>';
-}
+        $userdata = $_SESSION['userdata'];
+        $groupsdata= $_SESSION['groupsdata'];
+        if($_SESSION ['userdata']['status']==0){
+            $status='<b style="color:red">Not Voted</b>';
+        }
+        else{
+        $status= '<b style="color:red">Not Voted</b>';
+        }
 ?>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/stylesheet.css">
@@ -24,10 +24,10 @@ else{
     <style>
         #backbutton{
         padding: 10px;
-    font-size:15px;
-    border-radius: 5px;
-    background-color: aqua;
-    color:white ;
+     font-size:15px;
+     border-radius: 5px;
+     background-color: aqua;
+     color:white ;
      float: left;
      margin: 10px;
     }
@@ -70,8 +70,7 @@ else{
     font-size:15px;
     border-radius: 5px;
     background-color: green;
-    color:white ;
-        
+    color:white;
 
     }
    
@@ -101,9 +100,9 @@ else{
            for($i=0;$i<count($groupsdata); $i++){
             ?>
             <div>
-                <img style="float;right" src="../uploads/<?php echo $groupdata[$i]['photo']?> "height="100" width="100">  alt="">
-              <b> Group Name:</b><?php echo $groupdata[$i]['name']?></br> <br>
-              <b> Votes:</b> <?php echo $groupdata[$i]['votes']?></br>  <br>
+                <img style="float:right" src="../uploads/<?php echo $groupsdata[$i]['photo']?> "height="100" width="100">
+              <b> Group Name:</b><?php echo $groupsdata[$i]['name']?></br> <br>
+              <b> Votes:</b> <?php echo $groupsdata[$i]['votes']?></br>  <br>
               <form action="../api/vote.php" method="POST">
                 <input type="hidden" name="gid" value="<?php echo $groupsdata[$i]['votes']?>">
                 <?php
